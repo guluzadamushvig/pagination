@@ -12,7 +12,6 @@ import org.springframework.data.jpa.domain.Specification;
 
 import static com.example.pagination.model.constants.CriteriaConstants.*;
 import static com.example.pagination.util.PredicateUtil.applyLikePattern;
-import static org.springframework.data.jpa.domain.AbstractAuditable_.createdDate;
 
 
 @RequiredArgsConstructor
@@ -28,6 +27,7 @@ public class UserSpecification implements Specification<UserEntity> {
                 )
                 .addNullSafety(userCriteria.getAgeFrom(), ageFrom -> cb.greaterThanOrEqualTo(root.get(AGE), ageFrom))
                 .addNullSafety(userCriteria.getAgeTo(), ageTo -> cb.lessThanOrEqualTo(root.get(AGE), ageTo))
+                .addNullSafety(userCriteria.getCreatedDate(), createdDate -> cb.greaterThanOrEqualTo(root.get(CREATED_AT),createdDate))
                 .build();
         return cb.and(predicates);
     }

@@ -13,4 +13,5 @@ public class UserCriteria {
     private Integer ageFrom;
     private Integer ageTo;
     private String birthPlace;
+    private LocalDateTime createdDate;
 }
