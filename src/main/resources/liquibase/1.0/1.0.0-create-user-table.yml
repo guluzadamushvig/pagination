@@ -1,0 +1,42 @@
+databaseChangeLog:
+  - changeSet:
+      id: create users table
+      author: Mushvig Guluzada
+      description: create users table to store book data
+      changes:
+        - createTable:
+            tableName: users
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(64)
+              - column:
+                  name: birth_place
+                  type: varchar(64)
+              - column:
+                  name: email
+                  type: varchar(64)
+              - column:
+                  name: age
+                  type: int
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: created date of the column
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValue: now()
+                  remarks: updated date of the column
+                  constraints:
+                    nullable: false
